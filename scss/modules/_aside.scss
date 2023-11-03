@@ -1,0 +1,39 @@
+@use 'variable' as vb;
+
+aside{
+    width: 600px;
+    height: inherit;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    // padding-top: 900px;
+    
+    .box-wrap{
+        position: relative;
+        display: flex;
+        width: inherit;
+        flex-flow: column;
+        width: 375px;
+        gap: 20px 0;
+        padding: 0 10px;
+
+        .box{
+            height: 300px;
+            background-color: vb.$boxBg;
+            border-radius: 30px;
+        }
+    
+        .box:nth-child(1){
+            height: 1200px;
+        }
+    }
+
+    .box-wrap.sticky{
+        position: fixed;
+        width: 375px;
+        top: -222px;
+    }
+
+    .box-wrap.tes{
+        position: relative;
+    }
+}

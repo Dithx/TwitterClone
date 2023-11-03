@@ -1,0 +1,120 @@
+@use 'variable' as vb;
+
+header{
+    width: 350px;
+    height: 100vh;
+    nav{
+        border: 1px solid rgb(241, 241, 241);
+        position: fixed;
+        top: 0;
+        display: flex;
+        flex-flow: column;
+        background-color: white;
+
+        width: 275px;
+        height: 100vh;
+
+        a.brand{
+            div{
+                margin-left: 15px;
+                svg{
+                    transform: scale(1.4);
+                }
+            }
+        }
+
+        a.item-nav{
+            order: 1;
+            text-decoration: none;
+            color: black;
+            transition: 0.1s ease;
+
+            .wrap-item-content{
+                height: 55px;
+                display: flex;
+                align-items: center;
+                
+            }
+        }
+
+        a.item-nav:hover{
+            background-color: vb.$boxBg;
+        }
+        
+        a.item-nav.active{
+            svg{
+                fill: invert($color: #fff) !important;
+            }
+
+            g#ic_fluent_people_community_28_filled{
+                fill: #000000;
+                stroke: rgb(248, 248, 248);
+                stroke-width: 1;
+            }
+
+            svg.more{
+                fill: none !important;
+            }
+            
+        }
+
+        a.btn-post{
+            order: 2;
+
+            width: 85%;
+            margin-top: 20px;
+
+            background-color: vb.$blue;
+            border-radius: 30px;
+            text-decoration: none;
+
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                height: 50px;
+                padding: 20px;
+
+                p{ 
+                    color: white;
+                    font-weight: 800;
+                }
+
+                .svg-post{
+                    display: none;
+                }
+            }
+        }
+
+        a.btn-account{
+            position: absolute;
+            order: 3;
+            bottom: 50px;
+
+            display: flex;
+
+            // height: 100%;
+            text-decoration: none;
+            color: black;
+
+            div{
+                display: flex;
+
+                .profil-account{
+                    padding: 0 10   px;
+                    img{
+                        border-radius: 50%;
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+
+                .name-account{
+                    display: flex;
+                    flex-flow: column;
+                }
+            }
+        }
+    }
+}   

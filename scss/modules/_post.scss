@@ -1,0 +1,420 @@
+@use 'variable' as vb;
+
+
+.post-container.hide{
+    display: none !important;
+}
+
+.post-container{
+    align-self: flex-start;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px 20px;
+    padding-bottom: 0;
+    height: fit-content ;
+    border-right: 1px solid rgb(241, 241, 241);
+
+    .box-post{
+        display: flex;
+        flex-flow: row;
+        height: inherit;
+
+        .vertical{
+            flex-grow: 1;
+            display: flex;
+            border-bottom: 1px solid rgb(241, 241, 241);
+
+            
+            .photo-profil{
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .horizontal{
+            display: flex;
+            flex-flow: column;
+            flex-grow: 6;
+            height: 100%;
+
+            .input-threads{        
+                flex-grow: 3;
+                display: flex;
+                flex-flow: column;
+                justify-content: flex-start;
+                gap: 20px 0;
+                width: 90%;
+                form{
+                    display: flex;
+                    flex-flow: column;
+                    height: fit-content;
+                    padding: 0 4px;
+                    textarea.input{
+                        border: none;
+                        width: 100%;
+                        min-height: 30px;
+                        max-height: 200px;
+                        font-size: 1.3em;
+                        font-family: Arial, Helvetica, sans-serif;
+                        outline: none;
+                        resize: none;
+                        overflow: hidden;
+                        align-self: center;
+                        justify-self: center;
+                    }
+
+                }
+                
+                button{
+                    width: fit-content;
+                    border: none;
+                    padding: 2px 0;
+                    border-radius: 30px;
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+                .wrap-privacy.upload{
+                    display: none;
+                    width: fit-content;
+                    border: 1px solid rgb(221, 221, 221);
+                    padding: 1px 10px;
+                    border-radius: 30px;
+                    button{
+                        display: flex;
+                        align-items: center;
+                        gap: 0 5px;
+                        p{
+                            color: vb.$blue;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .wrap-privacy{
+                    display: none;
+                }
+                .wrap-privacy.show{
+                    display: block;
+                }
+
+
+
+                .wrap-privacy.reply{
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid rgb(241, 241, 241);
+                    
+                    button.privacy-reply{
+                        display: flex;
+                        gap: 0 6px;
+                        padding: 5px 8px;
+                        align-items: center;
+                        p{
+                            color: vb.$blue;
+                            font-weight: bold;
+                        }
+                    }
+
+                    button.privacy-reply:hover{
+                        background-color: lighten($color: vb.$blue, $amount: 40%);
+                    }
+
+                    svg{
+                        transform: translateY(-1px);
+                    }
+                }
+            }
+
+            .tools{
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid rgb(241, 241, 241);
+                padding: 10px;
+
+                .post-btn{
+                    order: 2;
+                    input{
+                        width: 60px;
+                        height: 30px;
+                        border: none;
+                        border-radius: 30px;
+                        background-color: vb.$blue;
+                        color: white;
+                        opacity: 0.6;
+                    }
+                    
+                    input.active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+
+                    .submit{
+                        cursor: pointer;
+                    }
+                }
+                
+                .svg-tools{
+                    order: 1;
+                    display: flex;
+                    gap: 0 30px;
+                    a{
+                        svg{
+                            padding: 2px;
+                            transform: scale(3.5);
+                            border-radius: 30px;
+                        }
+                        svg:hover{
+                            background-color: lighten($color: vb.$blue, $amount: 40%);
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+.post{
+    transition: 0.2s ease;
+    .wrap-post{
+        padding: 10px;
+        transform: scale(1);
+        display: flex;
+        gap: 0 1px;
+        .photo-profil{
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                transform: scale(0.9);
+            }
+        }
+        
+        .content-post{
+            width: 100%;
+            display: flex;
+            flex-flow: column;
+            gap: 15px 0;
+            padding: 5px 20px;
+
+            .username{
+                display: flex;
+                align-items: center;
+                gap: 0 5px;
+                p{
+                    font-weight: bold;
+                    opacity: 0.7;
+                }
+
+                .user-id{
+                    font-size: 0.8em;
+                    opacity: 0.7;
+                }
+            }
+
+            .caption{
+                p{
+                    font-size: 0.9em;
+                    opacity: 0.8;
+                    line-height: 20px;
+                }
+            }
+
+            .picture{
+                // padding: 1em 0;
+                img{
+                    width: 100%;
+                    height: auto;
+                    border-radius: 20px;
+                }
+            }
+
+            .insight{
+                display: flex;
+                justify-content: space-between;
+                
+                a{
+                    text-decoration: none;
+                    color: #000;
+                    opacity: 0.8;
+                    transform: scale(0.9);
+                    div{
+                        display: flex;
+                        gap: 0 10px;
+                    }
+                }
+
+                .save-upload{
+                    display: flex;
+                    flex-flow: row;
+                    width: fit-content;
+                    gap: 0 15px;
+                    transform: scale(1.3);
+
+                    a{
+                        div{
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.post:hover{
+    background-color: darken($color: #fff, $amount: 5%);
+}
+
+.modal-form{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    border-radius: 30px;
+    z-index: 999;
+    
+    .modal:nth-child(1){
+        background-color: darken($color: #fff, $amount: 90%);
+        opacity: 0.5;
+        position: absolute;
+        top: -100px;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        z-index: -1;
+    }
+
+    .modal{
+        display: flex;
+        padding: 20px;
+        margin: 100px auto;
+        width: 600px;
+        height: fit-content;
+        background-color: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        z-index: 999;
+
+        .form-input{
+            display: flex;
+            flex-flow: column;
+            width: 100%;
+
+            .header-modal{
+                flex-grow: 1;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 30px;
+
+                a:last-child{
+                    text-decoration: none;
+                    color: vb.$blue;
+                    div{
+                        p{
+
+                        }
+                    }
+                }
+            }
+
+            .row-2{
+                flex-grow: 2;
+                display: flex;
+                .photo-profil{
+                    img{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 100%;
+                    }
+                }
+
+                textarea{
+                    width: 100%;
+                    min-height: 100px;
+                    max-height: 200px;
+                    border: none;
+                    outline: none;
+                    padding: 10px;
+                    font-size: 1.3em;
+                    resize: none;
+                    font-family: Arial, Helvetica, sans-serif !important;
+                }
+            }
+
+
+            .last-row{
+                flex-grow: 1;
+                display: flex;
+                flex-flow: column;
+                justify-content: flex-end;
+
+                .wrap-privacy.reply{
+                    border-bottom: 1px solid rgb(240, 240, 240);
+                    padding-bottom: 10px;
+                    .privacy-reply{
+                        display: flex;
+                        align-items: center;
+                        background-color: transparent;
+                        border: none;
+                        width: 150px;
+                        height: 20px;
+                        border-radius: 30px;
+                        padding-left: 10px;
+                        color: vb.$blue;
+                        gap: 0 5px;
+                        transition: 0.2s ease;
+                    }
+
+                    .privacy-reply:hover{
+                        background-color: lighten($color: vb.$blue, $amount: 38%);
+                    }
+                }
+
+
+                .tools{
+                    display: flex;
+                    align-items: center;
+                    height: 50px;
+                    padding: 10px;
+                    padding-top: 20px;
+                    justify-content: space-between;
+
+                    .svg-tools{
+                        display: flex;
+                        gap: 0 30px;
+                        a{
+                            svg{
+                                transform: scale(2);
+                            }
+                        }
+                    }
+
+                    .post-btn{
+                        input{
+                            background-color: vb.$blue;
+                            width: 80px;
+                            height: 40px;
+                            border-radius: 30px;
+                            border: none;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.modal-form.active{
+    display: block;
+}
+
+.modal-form-mobile{
+    display: none;
+}
